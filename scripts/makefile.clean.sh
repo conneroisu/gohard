@@ -1,8 +1,5 @@
 #!/bin/bash
-# file: makefile.clean.sh
-# url: https://github.com/conneroisu/hardgo/scripts/makefile.clean.sh
-# title: Cleaning Script
-# description: This script cleans the project
+# url: https://github.com/conneroisu/hardgo/blob/main/scripts/makefile.clean.sh
 
 # if there is a tmp folder, delete it
 if [ -d "tmp" ]; then

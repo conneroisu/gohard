@@ -1,10 +1,5 @@
 #!/bin/bash
-# file: taskfile.test.sh
-# url: https://github.com/conneroisu/hardgo/scripts/taskfile.test.sh
-# title: Test Script
-# description: This script runs the test for the project.
-#
-# usage: make test
+# url: https://github.com/conneroisu/hardgo/blob/main/scripts/taskfile.test.sh
 
 go test -race -v -timeout 30s ./...
 

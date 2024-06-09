@@ -1,14 +1,10 @@
 package cmd
 
 import (
-	"context"
-	"fmt"
 	"os"
 
+	"github.com/conneroisu/hardgo/internal/graph"
 	"github.com/spf13/cobra"
-
-	"github.com/alexaandru/go-sitter-forest/sqlite"
-	sitter "github.com/alexaandru/go-tree-sitter-bare"
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -33,6 +29,8 @@ func Execute() {
 	if err != nil {
 		os.Exit(1)
 	}
+	graph.Execute()
+
 }
 
 const (
@@ -62,15 +60,19 @@ func init() {
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 
-	n, err := sitter.ParseCtx(context.Background(), []byte(code), sqlite.GetLanguage())
-	if err != nil {
-		fmt.Printf("Expected no error got %v", err)
-		os.Exit(1)
+	// n, err := sitter.ParseCtx(
+	//         context.Background(),
+	//         []byte(code),
+	//         verilog.GetLanguage(),
+	// )
+	// if err != nil {
+	//         fmt.Printf("Expected no error got %v", err)
+	//         os.Exit(1)
+	//
+	// }
 
-	}
-
-	if act := n.String(); act != expected {
-		fmt.Printf("Expected %q got %q", expected, act)
-		os.Exit(1)
-	}
+	// if act := n.String(); act != expected {
+	//         fmt.Printf("Expected %q got %q", expected, act)
+	//         os.Exit(1)
+	// }
 }
