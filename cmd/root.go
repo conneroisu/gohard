@@ -10,16 +10,10 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "hardgo",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Short: "A utility for the gohard language.",
+	Long: `
+Hardgo is a utility for the gohard language.
+	`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -32,22 +26,6 @@ func Execute() {
 	graph.Execute()
 
 }
-
-const (
-	code = `
-PRAGMA schema.auto_vacuum;
-PRAGMA schema.auto_vacuum = 0;
-PRAGMA schema.auto_vacuum(NONE);
-
-SELECT EXISTS (SELECT cname FROM tblname);
-SELECT NOT EXISTS (SELECT cname FROM tblname);
-
-SELECT ALL count(*), max(a) FROM t1 WHERE b>'one' GROUP BY b;
-SELECT ALL count(*), max(a) FROM t1 WHERE a!='b' GROUP BY b HAVING count(*)=1;
-SELECT ALL count(*), max(a) FROM t1 WHERE 0 GROUP BY b HAVING count(*)=2;
-`
-	expected = "(sql_stmt_list (sql_stmt (pragma_stmt (PRAGMA) (identifier) (identifier))) (sql_stmt (pragma_stmt (PRAGMA) (identifier) (identifier) (pragma_value (signed_number (numeric_literal))))) (sql_stmt (pragma_stmt (PRAGMA) (identifier) (identifier) (pragma_value (identifier)))) (sql_stmt (select_stmt (SELECT) (EXISTS) (select_stmt (SELECT) (identifier) (from_clause (FROM) (table_or_subquery (identifier)))))) (sql_stmt (select_stmt (SELECT) (NOT) (EXISTS) (select_stmt (SELECT) (identifier) (from_clause (FROM) (table_or_subquery (identifier)))))) (sql_stmt (select_stmt (SELECT) (ALL) (function_name (identifier)) (function_name (identifier)) (identifier) (from_clause (FROM) (table_or_subquery (identifier))) (where_clause (WHERE) (identifier) (string_literal)) (group_by_clause (GROUP) (BY) (identifier)))) (sql_stmt (select_stmt (SELECT) (ALL) (function_name (identifier)) (function_name (identifier)) (identifier) (from_clause (FROM) (table_or_subquery (identifier))) (where_clause (WHERE) (identifier) (string_literal)) (group_by_clause (GROUP) (BY) (identifier) (HAVING) (function_name (identifier)) (numeric_literal)))) (sql_stmt (select_stmt (SELECT) (ALL) (function_name (identifier)) (function_name (identifier)) (identifier) (from_clause (FROM) (table_or_subquery (identifier))) (where_clause (WHERE) (numeric_literal)) (group_by_clause (GROUP) (BY) (identifier) (HAVING) (function_name (identifier)) (numeric_literal)))))"
-)
 
 func init() {
 	// Here you will define your flags and configuration settings.

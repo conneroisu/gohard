@@ -1,31 +1,36 @@
 # hardgo
 
-design hardware with golang
+Design hardware with golang.
+
+## Introduction
 
 Compiles golang to verilog and vhdl, but allows simulation of the golang code.
+
+Introduces a new language called `hardgo` that compiles to verilog and vhdl.
+Similar to [templ](https://templ.guide/) but for hardware rather than html.
 
 ## Installation
 
 Get the cli.
 
 ```bash
-go install github.com/conneroisu/hardgo/cmd/hardgo@latest
+go install github.com/conneroisu/gohard/cmd/gohard@latest
 ```
 
 Get the package.
 
 ```bash
-go get github.com/conneroisu/hardgo
+go get github.com/conneroisu/gohard
 ```
 
 ## Usage
 
 ```bash
-hardgo -h
+gohard -h
 ```
 
 ## Example
 
 ```bash
-hardgo -o test.v -i test.go
+gohard -o test.v -i test.go
 ```

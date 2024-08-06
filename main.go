@@ -1,5 +1,5 @@
-// Package hardgo is a simple and lightweight Go library for working with
-// hardware description langages.
+// Package hardgo is a file format and lightweight Go library for working
+// with hardware description langages.
 package main
 
 import "github.com/conneroisu/hardgo/cmd"
