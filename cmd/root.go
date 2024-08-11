@@ -1,4 +1,6 @@
-package cmd
+// Package hardgo is a file format and lightweight Go library for working
+// with hardware description langages.
+package main
 
 import (
 	"os"
@@ -6,6 +8,10 @@ import (
 	"github.com/conneroisu/hardgo/internal/graph"
 	"github.com/spf13/cobra"
 )
+
+func main() {
+	Execute()
+}
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
