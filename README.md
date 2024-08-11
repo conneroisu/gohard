@@ -1,6 +1,6 @@
 # gohard
 
-Design hardware with golang.
+Design hardware with golang. (WIP)
 
 ## Introduction
 
