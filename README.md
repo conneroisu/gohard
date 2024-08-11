@@ -1,4 +1,4 @@
-# hardgo
+# gohard
 
 Design hardware with golang.
 
